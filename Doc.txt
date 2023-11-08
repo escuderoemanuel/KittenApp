@@ -1,0 +1,21 @@
+15. npm install standard _d => Para instalar eslintConfig
+
+16. en el package.json, agregar
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
+  }
+
+17. Create folder 'src'
+18. Create file 'App.jsx' and export it
+19. In the file main.jsx import file 'App.jsx' and render it
+20. Separate the test into items/steps
+21. Show progrees on the screen, incrementally
+22. Review the API's and understand them!
+22. Create the const with the necessary endpoints
+22. Create an 'useState' for the the first step fact
+23. Render the fact inside the main using conditional render
+24. Create an 'useEffect' for the fetch
+25. In the same 'useEffect' catch the first word with 'split', 'slice', 'join'
+26. If necessary, search within the MDN website
+27. Create new 'useState' for the 'image'
+28. Render the image
