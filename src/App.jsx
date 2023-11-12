@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 
 const CAT_ENDPOINT_RANDOM_FACT = 'https://catfact.ninja/fact'
-// const CAT_ENDPOINT_IMAGE_URL= `https://cataas.com/cat/says/hello/${url}`
-const CAT_PREFIX_URL = 'https://cataas.com/cat/says/hello/'
+// const CAT_ENDPOINT_IMAGE_URL= `https://cataas.com/cat/says/${threeFirstWords}?size=50&color=red&json=true`
+// const CAT_ENDPOINT_IMAGE_URL= `https://cataas.com/cat/says/${threeFirstWords}?size=50&color=red&json=true`
 
 export function App () {
   const [fact, setFact] = useState()
@@ -14,16 +14,16 @@ export function App () {
       .then(data => {
         const { fact } = data
         setFact(fact)
-        /* const firstWord = fact.split(' ').slice(0, 3).join(' ') */
-        const threeFirstWord = fact.split(' ', 3).join(' ')
-        console.log(threeFirstWord)
 
-        fetch(`https://cataas.com/cat/says/${threeFirstWord}?size=50&color=red&json=true`)
-          .then(res => res.json())
+        const threeFirstWords = fact.split(' ', 3).join(' ') // => Sería lo mismo hacer 'const firstWord = fact.split(' ').slice(0, 3).join(' ') '
+        console.log(threeFirstWords)
+
+        fetch(`https://cataas.com/cat/says/${threeFirstWords}`)
+
           .then(response => {
-            console.log(response)
             const { url } = response
             setImageUrl(url)
+            console.log(url)
           })
       })
   }, [])
@@ -32,7 +32,7 @@ export function App () {
     <main>
       <h1>Kitten App</h1>
       {fact && <p>{fact}</p>}
-      {imageUrl && <img src={`${CAT_PREFIX_URL}${imageUrl}`} alt={`Image extracted using the three first word of: ${fact}`} />}
+      {imageUrl && <img src={`${imageUrl}`} alt={`Image extracted using the three first word of: ${fact}`} />}
     </main>
   )
 }
