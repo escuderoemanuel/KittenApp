@@ -28,19 +28,13 @@ p {
   text-align: center;
 }
 
-span {
-  color: rgb(0, 162, 255);
-  font-weight: bolder;
-  font-style: italic;
-  font-size: 1.2rem;
-}
-
 img {
   width: 300px;
   border-radius: 20px;
 }
 
 button {
+  margin: 1rem 0;
   padding: .5rem;
   border-radius: 5px;
   border: none;

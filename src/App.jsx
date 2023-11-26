@@ -5,7 +5,7 @@ import { getRandomFact } from './services/facts'
 const CAT_PREFIX_IMAGE_URL = 'https://cataas.com/cat/says/'
 // const CAT_ENDPOINT_IMAGE_URL= `https://cataas.com/cat/says/${threeFirstWords}?size=50&color=red&json=true`
 
-export function App() {
+export function App () {
   const [fact, setFact] = useState()
   const [imageUrl, setImageUrl] = useState()
 
@@ -40,7 +40,7 @@ export function App() {
       <h1>Kitten App</h1>
       <section>
         <button onClick={handleClick}>Refresh Fact</button>
-        {fact && <p><span>Fact: </span> {fact}</p>}
+        {fact && <p>{fact}</p>}
         {imageUrl && <img src={`${imageUrl}`} alt={`Image extracted using the three first word of: ${fact}`} />}
       </section>
     </main>
