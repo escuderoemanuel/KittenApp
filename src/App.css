@@ -10,15 +10,29 @@ body {
   color: whitesmoke
 }
 
-main {
+main,
+section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  place-items: center;
 }
 
-h1, p {
+h1 {
+  color: rgb(0, 162, 255);
+  text-decoration: underline;
+}
+
+h1,
+p {
   margin: 1rem 2rem 1rem;
+  text-align: center;
+}
+
+span {
+  color: rgb(0, 162, 255);
+  font-weight: bolder;
+  font-style: italic;
+  font-size: 1.2rem;
 }
 
 img {
