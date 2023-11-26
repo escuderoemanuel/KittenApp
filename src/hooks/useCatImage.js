@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 const CAT_PREFIX_IMAGE_URL = 'https://cataas.com/cat/says/'
 
-export function useCatImage({ fact }) {
+export function useCatImage ({ fact }) {
   const [imageUrl, setImageUrl] = useState()
   // Effect to recover a new image, when there is a new phrase
   useEffect(() => {
