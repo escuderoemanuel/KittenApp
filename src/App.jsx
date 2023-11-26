@@ -1,38 +1,15 @@
-import { useEffect, useState } from 'react'
 import './App.css'
-import { getRandomFact } from './services/facts'
+import { useCatImage } from './hooks/useCatImage'
+import { useCatFact } from './hooks/useCatFact'
+import OtherComponent from './components/otherComponent'
 
-const CAT_PREFIX_IMAGE_URL = 'https://cataas.com/cat/says/'
-// const CAT_ENDPOINT_IMAGE_URL= `https://cataas.com/cat/says/${threeFirstWords}?size=50&color=red&json=true`
-
-export function App () {
-  const [fact, setFact] = useState()
-  const [imageUrl, setImageUrl] = useState()
-
-  // Effect to recover the phrase, when rendering the page
-  useEffect(() => {
-    getRandomFact().then(setFact)
-  }, [])
-
-  // Effect to recover a new image, when there is a new phrase
-  useEffect(() => {
-    if (!fact) return
-    const threeFirstWords = fact.split(' ', 3).join(' ') // => Sería lo mismo hacer 'const firstWord = fact.split(' ').slice(0, 3).join(' ') '
-    console.log(threeFirstWords)
-
-    fetch(`${CAT_PREFIX_IMAGE_URL}${threeFirstWords}`)
-
-      .then(response => {
-        const { url } = response
-        setImageUrl(url)
-        console.log(url)
-      })
-  }, [])
+export function App() {
+  const { fact, refreshFact } = useCatFact()
+  const { imageUrl } = useCatImage({ fact })
 
   // Handle Click to refresh the fact with the button
   const handleClick = async () => {
-    const newFact = await getRandomFact()
-    setFact(newFact)
+    refreshFact()
   }
 
   return (
@@ -43,6 +20,7 @@ export function App () {
         {fact && <p>{fact}</p>}
         {imageUrl && <img src={`${imageUrl}`} alt={`Image extracted using the three first word of: ${fact}`} />}
       </section>
+      <OtherComponent />
     </main>
   )
 }
