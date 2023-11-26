@@ -1,6 +1,8 @@
 import './App.css'
 import { useCatImage } from './hooks/useCatImage'
 import { useCatFact } from './hooks/useCatFact'
+import Header from './components/Header/Header'
+import { Footer } from './components/Footer/Footer'
 
 export function App () {
   const { fact, refreshFact } = useCatFact()
@@ -13,12 +15,13 @@ export function App () {
 
   return (
     <main>
-      <h1>Kitten App</h1>
-      <section>
+      <Header />
+      <section className='body'>
         <button onClick={handleClick}>Refresh Fact</button>
-        {fact && <p>{fact}</p>}
-        {imageUrl && <img src={`${imageUrl}`} alt={`Image extracted using the three first word of: ${fact}`} />}
+        {fact && <p className='factText'>{fact}</p>}
+        {imageUrl && <img className='imgCat' src={`${imageUrl}`} alt={`Image extracted using the three first word of: ${fact}`} />}
       </section>
+      <Footer />
     </main>
   )
 }
