@@ -1,9 +1,8 @@
 import './App.css'
 import { useCatImage } from './hooks/useCatImage'
 import { useCatFact } from './hooks/useCatFact'
-import OtherComponent from './components/otherComponent'
 
-export function App() {
+export function App () {
   const { fact, refreshFact } = useCatFact()
   const { imageUrl } = useCatImage({ fact })
 
@@ -20,7 +19,6 @@ export function App() {
         {fact && <p>{fact}</p>}
         {imageUrl && <img src={`${imageUrl}`} alt={`Image extracted using the three first word of: ${fact}`} />}
       </section>
-      <OtherComponent />
     </main>
   )
 }

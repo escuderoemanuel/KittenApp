@@ -1,7 +1,7 @@
 import React from 'react'
 import { useCatImage } from '../hooks/useCatImage'
 
-export default function OtherComponent() {
+export default function OtherComponent () {
   const { imageUrl } = useCatImage({ fact: 'cat' })
 
   return (
