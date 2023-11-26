@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import { getRandomFact } from './services/facts'
 
-const CAT_ENDPOINT_RANDOM_FACT = 'https://catfact.ninja/fact'
 const CAT_PREFIX_IMAGE_URL = 'https://cataas.com/cat/says/'
 // const CAT_ENDPOINT_IMAGE_URL= `https://cataas.com/cat/says/${threeFirstWords}?size=50&color=red&json=true`
 
@@ -11,12 +11,7 @@ export function App() {
 
   // Effect to recover the phrase, when rendering the page
   useEffect(() => {
-    fetch(CAT_ENDPOINT_RANDOM_FACT)
-      .then(res => res.json())
-      .then(data => {
-        const { fact } = data
-        setFact(fact)
-      })
+    getRandomFact().then(setFact)
   }, [])
 
   // Effect to recover a new image, when there is a new phrase
@@ -34,10 +29,17 @@ export function App() {
       })
   }, [])
 
+  // Handle Click to refresh the fact with the button
+  const handleClick = async () => {
+    const newFact = await getRandomFact()
+    setFact(newFact)
+  }
+
   return (
     <main>
       <h1>Kitten App</h1>
       <section>
+        <button onClick={handleClick}>Refresh Fact</button>
         {fact && <p><span>Fact: </span> {fact}</p>}
         {imageUrl && <img src={`${imageUrl}`} alt={`Image extracted using the three first word of: ${fact}`} />}
       </section>
