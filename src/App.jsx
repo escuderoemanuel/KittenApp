@@ -4,7 +4,7 @@ import { useCatFact } from './hooks/useCatFact'
 import Header from './components/Header/Header'
 import { Footer } from './components/Footer/Footer'
 
-export function App () {
+export function App() {
   const { fact, refreshFact } = useCatFact()
   const { imageUrl } = useCatImage({ fact })
 
@@ -14,7 +14,7 @@ export function App () {
   }
 
   return (
-    <main>
+    <main className='main'>
       <Header />
       <section className='body'>
         <button onClick={handleClick}>Refresh Fact</button>
