@@ -1,16 +1,16 @@
-# Prueba Técnica Jr-Trainee Fetch
+# Fetching Technical Test for Jr and Trainee
 
-1. En consola 'npm create vite@latest'
-2. Nombre del Proyecto 'KittenApp'
-3. Nombre del package 'kittenapp'
-4. Si nos dejan, elegir 'React', sino 'Vanilla' y luego 'JavaScript'
-5. cd 'KittenApp'
-6. npm install @vitejs/plugin-react -E => Instala el plugin con la versión exacta y crear el entorno de desarrollo
-7. Instalar 'npm install react react-dom -E' => dependencias que no se han instalado y no están en el package.json
-8. Dejar la consola minimizada
-9. Abrir carpeta con VSCode
-10. Crear la configuración de Vite, nuevo archivo 'vite.config.js'
-11. En el archivo vite.config.js:
+1. On the console: 'npm create vite@latest'
+2. Project's name:'KittenApp'
+3. Package's name: 'kittenapp'
+4. If we can, choose 'React', otherwise choose 'Vanilla' and then 'JavaScript'
+5. Enter the folder: cd 'KittenApp'
+6. Npm install @vitejs/plugin-react -E => Install the plugins with the exact version and create the development environment. 
+7. Install 'npm install react react-dom -E' => dependencies that have been not installed and are not in the package.json 
+8. Minimize the console
+9. Open project folder with VSCode
+10. Create the Vite Configuration, in the new file 'vite.config.js'
+11. In the file vite.config.js:
 
     - import { defineConfig } from 'vite';
     - import react from '@vitejs/plugin-react';
@@ -19,20 +19,20 @@
       plugins: [react()],
       });
 
-12. En el archivo main.js:
+12. In the file main.js:
 
-    - import { createRoot } from 'react-dom/ client';
+    - import { createRoot a} from 'react-dom/ client';
 
     - const root = createRoot(document.getElementById('app'));
       root.render(<h1>Hello World!</h1>);
 
-13. Antes del 'npm run dev' hay que convertir el archivo main.js en main.jsx y también cambiar el nombre a main.jsx en el archivo index.html, porque el plugin de vite no está preparado para transpilar js
+13. Convert the file 'main.js' in 'main.jsx' and change the name in the file 'index.html', because the Vite plugin is not prepared to transpile JS code.
 
-14. Correr aplicación 'npm run dev'
+14. Start/run application 'npm run dev'
 
-15. npm install standard \_d => Para instalar eslintConfig
+15. npm install standard \_d => for install eslintConfig
 
-16. en el package.json, agregar
+16. In the package.json, add
     "eslintConfig": {
     "extends": "./node_modules/standard/eslintrc.json"
     }
